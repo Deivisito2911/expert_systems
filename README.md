@@ -14,4 +14,5 @@ pipenv install
 
 ```bash
 pipenv run main.py
+main.py si ya tienes python
 ```
