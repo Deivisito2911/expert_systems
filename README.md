@@ -6,6 +6,7 @@ Sistema experto en Python
 Utilizar [`pipenv`](https://pipenv.pypa.io)
 
 ```bash
+pip install --user pipenv
 pipenv install
 ```
 
