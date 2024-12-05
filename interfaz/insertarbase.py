@@ -8,12 +8,12 @@ class InsertarBase(tk.Frame):
         root = tk.Toplevel()
         super().__init__(root)
         root.geometry('380x450')
-        root.title('Insertar entrada')
+        root.title('Insertar un Filum')
         root.resizable(width=False, height=False)
         self.master = root
         self.pack()
 
-        self.lbl_base = tk.Label(self, text="Insertar una entrada")
+        self.lbl_base = tk.Label(self, text="Insertar un Filum")
         self.lbl_base.pack(side="top")
         self.lbl_base.config(font=("Helvetica", 24))
 
@@ -22,19 +22,19 @@ class InsertarBase(tk.Frame):
         self.entradas.tag_bind("tag_select", "<<TreeviewSelect>>", self.item_selected)
         self.fill_base_tree_view()
 
-        self.lbl_entry = tk.Label(self, text="Nombre de la entrada:")
+        self.lbl_entry = tk.Label(self, text="Nombre del Filum")
         self.lbl_entry.pack(side="top")
         self.lbl_entry.config(font=("Helvetica", 12))
         self.txt_entry = tk.Entry(self, width=50)
         self.txt_entry.pack(side="top", padx=5, pady=5)
 
-        self.lbl_prop = tk.Label(self, text="Propiedad:")
+        self.lbl_prop = tk.Label(self, text="Caracteristica")
         self.lbl_prop.pack(side="top")
         self.lbl_prop.config(font=("Helvetica", 12))
         self.txt_prop = tk.Entry(self, width=50)
         self.txt_prop.pack(side="top", padx=5, pady=5)
 
-        self.btn_insertar = tk.Button(self, text="Insertar", width=50, command=self.add_propiedad)
+        self.btn_insertar = tk.Button(self, text="Agregar", width=50, command=self.add_propiedad)
         self.btn_insertar.pack(side="top", padx=5, pady=5)
 
         self.quit = tk.Button(self, text="Salir", fg="red", width=50, command=self.master.destroy)
