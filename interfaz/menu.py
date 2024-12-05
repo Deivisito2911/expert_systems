@@ -27,5 +27,5 @@ class Interfaz(tk.Frame):
         self.txt_guardar = tk.Button(self, text="Cargar/Guardar", width=50, command=guardar_base.GuardarBase)
         self.txt_guardar.pack(side="top", padx=5, pady=5)
 
-        self.quit = tk.Button(self, text="QUIT", width=50, fg="red", command=self.master.destroy)
+        self.quit = tk.Button(self, text="Salir del sistema", width=50, fg="red", command=self.master.destroy)
         self.quit.pack(side="bottom", padx=5, pady=5)

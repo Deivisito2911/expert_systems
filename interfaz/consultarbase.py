@@ -14,7 +14,7 @@ class ConsultarBase(tk.Frame):
         self.master.title('Consultar al sistema')
         self.master.resizable(width=False, height=False)
 
-        self.lbl_question = tk.Label(self, text="PREGUNTA")
+        self.lbl_question = tk.Label(self, text="Caracteristica")
         self.lbl_question.pack(side="top", pady=20)
         self.lbl_question.config(font=("Helvetica", 12))
 
@@ -50,12 +50,12 @@ class ConsultarBase(tk.Frame):
     def _finished(self):
         if engine.result is None:
             messagebox.showerror("Error",
-                                 "No se encontró ninguna entrada que coincida con las propiedades ingresadas")
+                                 "No se encontró ningun filum que cumpla con las caracteristicas dadas.")
         else:
-            reason = f"Sugerido porque:\n"
+            reason = f"Caracteristicas coincidentes:\n"
             for prop in engine.result.properties:
                 reason += f"- {prop.name}\n"
-            messagebox.showinfo("Recomendación",
-                                f"Se recomienda: {engine.result.name}\n\n{engine.result.description}\n\n" + reason)
+            messagebox.showinfo("Filum encontrado",
+                                f"El filum es : {engine.result.name}\n\n{engine.result.description}\n\n" + reason)
 
         self.master.destroy()
