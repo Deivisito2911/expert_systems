@@ -7,7 +7,12 @@ Utilizar [`pipenv`](https://pipenv.pypa.io)
 
 ```bash
 pip install --user pipenv
-pipenv install
+```
+
+Utilizar [`customtkinter`](https://customtkinter.tomschimansky.com)
+
+```bash
+pip install --user pipenv
 ```
 
 ## Ejecutar
