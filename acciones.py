@@ -35,6 +35,8 @@ def cargar(entrada):
         try:
             engine.base.from_json(entrada.strip())
             messagebox.showinfo(message="El archivo fue cargado con éxito", title="Cargado")
+        except FileNotFoundError: 
+            messagebox.showinfo(message="Archivo no encontrado. Verifica el nombre y el formato del archivo.", title="Error")
         except KeyError:
             messagebox.showinfo(message="Archivo inválido o con formato incorrecto", title="Cargado")
 

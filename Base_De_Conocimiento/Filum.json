@@ -13,6 +13,13 @@
       ]
     },
     {
+      "name": "Hallaca",
+      "description": "Hallaca",
+      "props": [
+        "Es venezolana"
+      ]
+    },
+    {
       "name": "Agar chocolate",
       "description": "El agar chocolate es el medio de cultivo que se obtiene al calentar el agar sangre. Sea como sea, el más utilizado es aquel en el que se añade vancomicina (un antibiótico) y distintos nutrientes para estimular el crecimiento únicamente de \"Neisseria gonorrhoeae\" y \"Neisseria meningitidis\", bacterias responsables de la gonorrea y meningitis, respectivamente.",
       "props": [

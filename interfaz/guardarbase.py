@@ -1,5 +1,6 @@
 import tkinter as tk
 import acciones
+import os
 
 
 class GuardarBase(tk.Frame):
@@ -33,8 +34,16 @@ class GuardarBase(tk.Frame):
         self.quit.pack(side="bottom", padx=5, pady=5)
 
     def guardar_base_json(self):
-        acciones.guardar(self.txt_file.get())
+        subcarpeta = "Base_De_Conocimiento"#Nombre de la carpeta
+        if not os.path.exists(subcarpeta):#Si no esta la carpeta la crea
+            os.makedirs(subcarpeta)
+        ruta_completa = os.path.join(subcarpeta, self.txt_file.get())#Ruta completa de la carpeta
+        print(f"Guardando archivo en: {ruta_completa}") 
+        acciones.guardar(ruta_completa)
 
     def cargar_base_json(self):
-        acciones.cargar(self.txt_file.get())
+        subcarpeta = "Base_De_Conocimiento"
+        ruta_completa = os.path.join(subcarpeta, self.txt_file.get())
+        print(f"Cargando archivo desde: {ruta_completa}") # Para mostrar la ruta completa en la consola 
+        acciones.cargar(ruta_completa) 
         self.master.destroy()
