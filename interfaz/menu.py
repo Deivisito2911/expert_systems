@@ -1,31 +1,66 @@
-import tkinter as tk
+import customtkinter as ctk
 import interfaz.insertarbase as insertar_base
 import interfaz.guardarbase as guardar_base
 import interfaz.consultarbase as consultar_base
 
 
-class Interfaz(tk.Frame):
+class Interfaz(ctk.CTk):
     def __init__(self):
-        root = tk.Tk()
-        super().__init__(root)
-        root.geometry('400x200')
-        root.title('SE para selección de agares')
-        root.resizable(width=False, height=False)
-        self.master = root
-        self.pack()
+        super().__init__()
+        self.geometry('600x400')
+        self.title('Sistema Experto para Selección de Agares')
+        self.resizable(width=False, height=False)
 
-        self.lbl_base = tk.Label(self, text="Sistema Experto Agares")
-        self.lbl_base.pack(side="top")
-        self.lbl_base.config(font=("Helvetica", 24))
+        # Configuración de colores y fuentes globales
+        ctk.set_appearance_mode("light")  # Modo claro
+        ctk.set_default_color_theme("blue")  # Tema azul (similar a Facebook)
 
-        self.txt_insertar = tk.Button(self, text="Insertar/Visualizar", width=50, command=insertar_base.InsertarBase)
-        self.txt_insertar.pack(side="top", padx=5, pady=5)
+        # Cabecera
+        self.lbl_base = ctk.CTkLabel(self, text="Sistema Experto Agares", font=("Helvetica", 28, "bold"))
+        self.lbl_base.pack(pady=20)
 
-        self.txt_consultar = tk.Button(self, text="Consultar", width=50, command=consultar_base.ConsultarBase)
-        self.txt_consultar.pack(side="top", padx=5, pady=5)
+        # Botones principales con estilo
+        self.txt_insertar = ctk.CTkButton(
+            self,
+            text="Insertar / Visualizar",
+            width=300,
+            height=50,
+            command=insertar_base.InsertarBase
+        )
+        self.txt_insertar.pack(pady=10)
 
-        self.txt_guardar = tk.Button(self, text="Cargar/Guardar", width=50, command=guardar_base.GuardarBase)
-        self.txt_guardar.pack(side="top", padx=5, pady=5)
+        self.txt_consultar = ctk.CTkButton(
+            self,
+            text="Consultar",
+            width=300,
+            height=50,
+            command=consultar_base.ConsultarBase
+        )
+        self.txt_consultar.pack(pady=10)
 
-        self.quit = tk.Button(self, text="QUIT", width=50, fg="red", command=self.master.destroy)
-        self.quit.pack(side="bottom", padx=5, pady=5)
+        self.txt_guardar = ctk.CTkButton(
+            self,
+            text="Cargar / Guardar",
+            width=300,
+            height=50,
+            command=guardar_base.GuardarBase
+        )
+        self.txt_guardar.pack(pady=10)
+
+        # Botón de salida
+        self.quit = ctk.CTkButton(
+            self,
+            text="Salir",
+            width=300,
+            height=50,
+            fg_color="red",
+            hover_color="#ff6666",
+            command=self.destroy
+        )
+        self.quit.pack(pady=20)
+
+
+# Inicialización de la interfaz
+if __name__ == "__main__":
+    app = Interfaz()
+    app.mainloop()
