@@ -12,7 +12,7 @@ pip install --user pipenv
 Utilizar [`customtkinter`](https://customtkinter.tomschimansky.com)
 
 ```bash
-pip install --user pipenv
+pip install --user customtkinter
 ```
 
 ## Ejecutar
