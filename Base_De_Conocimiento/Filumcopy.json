@@ -35,6 +35,58 @@
         "Tiene reproduccion Sexual",
         "Tiene Habitat acuatica"
       ]
+    },
+    {
+      "name": "Ctenophora",
+      "description": "Es un pequeño grupo de animales marinos parecidos a los cnidarios, que tienen células especializadas llamadas coloblastos, responsables de producir sustancias pegajosas para atrapar a sus presas. Pueden vivir en la superficie, pero existe una gran variedad de ellos en el fondo oceánico, reportados en profundidades de hasta 3,000 metros.",
+      "props": [
+        "Tiene Organizacion de Tejidos",
+        "Tiene Simetría Radial",
+        "Tiene capa germinales Diploblástico",
+        "Tiene Cavidad corporal Ausente",
+        "No es segmentado",
+        "Tiene sistema digestivo Incompleto",
+        "Tiene sistema nervioso Difuso",
+        "Tiene soporte corporal Hidrostático",
+        "Tiene reproduccion Sexual",
+        "Tiene Habitat acuatica"
+      ]
+    },
+    {
+      "name": "Platyhelminthes",
+      "description": "Son llamados también gusanos planos y son un grupo que tiene individuos de vida libre, así como muchos parásitos de importancia médica, como la temida tenia intestinal. Son los primeros animales que presentan cefalización, es decir, una concentración mayor de neuronas en un extremo, lo que representa un avance, evolutivamente hablando, hacia la formación de un cerebro y un sistema nervioso central.",
+      "props": [
+        "Tiene Organizacion de Organos",
+        "Tiene Simetría Bilateral",
+        "Tiene capa germinales Triploblástico",
+        "Tiene Cavidad corporal Acelomado",
+        "No es segmentado",
+        "Tiene sistema digestivo Incompleto",
+        "Tiene sistema nervioso Ganglionar",
+        "Tiene soporte corporal Hidrostático",
+        "Tiene reproduccion Sexual",
+        "Tiene reproduccion Asexual",
+        "Tiene Habitat acuatica",
+        "Tiene Habitat parasito"
+      ]
+    },
+    {
+      "name": "Annelida",
+      "description": "Es un gran grupo de animales, la mayoría con forma de gusanos segmentados. ¿Conoces a las lombrices de tierra? ¿Y a las sanguijuelas? Pues ellas forman parte de este filo. Son animales , con celoma completo (celomados) con simetría bilateral y cuerpo dividido en segmentos por tabiques internos. Esta característica les permite ejercer presión hidrostática de manera más eficiente para la locomoción. Cada segmento se llama metámero y en especies más típicas del grupo, cada metámero posee porciones similares de los sistemas, lo que les permite actuar con relativa independencia.",
+      "props": [
+        "Tiene Organizacion de Organos",
+        "Tiene Simetría Bilateral",
+        "Tiene capa germinales Triploblástico",
+        "Tiene Cavidad corporal Celomado",
+        "No es segmentado",
+        "Tiene sistema digestivo completo",
+        "Tiene sistema nervioso Ganglionar",
+        "Tiene soporte corporal Hidrostático",
+        "Tiene reproduccion Sexual",
+        "Tiene reproduccion Asexual",
+        "Tiene Habitat acuatica",
+        "Tiene Habitat terrestre"
+      ]
     }
   ]
 }
