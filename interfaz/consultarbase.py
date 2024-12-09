@@ -39,8 +39,10 @@ class ConsultarBase(ctk.CTkFrame):
         self._get_question(Response.NO)
 
         # Marco para mostrar los resultados
-        self.result_frame = ctk.CTkFrame(self)
-        self.result_frame.pack(pady=15, padx=10, fill="both", expand=True)
+        
+        self.result_frame = ctk.CTkFrame(self, fg_color="#d9f5db")
+        
+        self.result_frame.pack(pady=15, padx=10, fill="both", expand=True )
 
     def _send_yes(self):
         self._get_question(Response.YES)
@@ -95,6 +97,7 @@ class ConsultarBase(ctk.CTkFrame):
                 font=("Helvetica", 14),
                 justify="left",
                 wraplength=400,
+                fg_color="#d9f5db"  # Color de fondo igual al del contenedor
             )
 
         # Empacar el resultado
