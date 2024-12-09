@@ -28,15 +28,24 @@ class Interfaz(ctk.CTk):
         self.lbl_base.pack(pady=10)  # Centrado con padding superior
 
         # Variables para el sidebar
-        self.sidebar_open = False
+        self.sidebar_open = True  # Siempre visible al principio
         self.sidebar_width = 200
 
         # Contenedor del sidebar sin bordes blancos
         self.sidebar_frame = ctk.CTkFrame(self, width=self.sidebar_width, fg_color="#4CAF50", corner_radius=0)
-        self.sidebar_frame.place(x=-self.sidebar_width, y=0, relheight=1)
+        self.sidebar_frame.place(x=0, y=0, relheight=1)
 
         # Botones del sidebar con iconos ASCII
         self.add_sidebar_buttons()
+
+        # Contenedor del área de contenido principal (ajustado a la izquierda)
+        self.content_frame = ctk.CTkFrame(self, fg_color="#f0f0f0", corner_radius=10)
+        self.content_frame.place(
+            x=self.sidebar_width + -50,  # Pegado a la sidebar con un pequeño margen
+            y=60,
+            relwidth=1 - ((self.sidebar_width + 10) / 800),  # Ajusta el ancho
+            relheight=0.9,  # Ajusta la altura
+        )
 
         # Botón para abrir/cerrar el sidebar
         self.menu_button = ctk.CTkButton(
@@ -71,7 +80,7 @@ class Interfaz(ctk.CTk):
         self.btn_insertar = ctk.CTkButton(
             self.sidebar_frame,
             text="📥",  # Icono ASCII para insertar
-            command=insertar_base.InsertarBase,
+            command=self.show_insertar_base,
             **button_style
         )
         self.btn_insertar.pack(pady=(70, 10), padx=10, anchor="w")  # Alineado a la izquierda
@@ -79,7 +88,7 @@ class Interfaz(ctk.CTk):
         self.btn_consultar = ctk.CTkButton(
             self.sidebar_frame,
             text="🔍",  # Icono ASCII para consultar
-            command=consultar_base.ConsultarBase,
+            command=self.show_consultar_base,
             **button_style
         )
         self.btn_consultar.pack(pady=10, padx=10, anchor="w")  # Alineado a la izquierda
@@ -87,7 +96,7 @@ class Interfaz(ctk.CTk):
         self.btn_guardar = ctk.CTkButton(
             self.sidebar_frame,
             text="💾",  # Icono ASCII para guardar
-            command=guardar_base.GuardarBase,
+            command=self.show_guardar_base,
             **button_style
         )
         self.btn_guardar.pack(pady=10, padx=10, anchor="w")  # Alineado a la izquierda
@@ -107,22 +116,41 @@ class Interfaz(ctk.CTk):
         )
         self.btn_salir.pack(side="bottom", pady=(20, 20), padx=10, anchor="w")  # Alineado a la izquierda y al fondo
 
+    def show_insertar_base(self):
+        # Limpiar el contenido previo
+        for widget in self.content_frame.winfo_children():
+            widget.destroy()
+
+        # Mostrar la vista de insertar base
+        insertar = insertar_base.InsertarBase(self.content_frame)
+        insertar.pack(fill="both", expand=True, padx=5, pady=5)  # Ajusta márgenes internos
+
+    def show_consultar_base(self):
+        # Limpiar el contenido previo
+        for widget in self.content_frame.winfo_children():
+            widget.destroy()
+
+        # Mostrar la vista de consultar base
+        consultar = consultar_base.ConsultarBase(self.content_frame)
+        consultar.pack(fill="both", expand=True, padx=0, pady=5)  # Ajusta márgenes internos
+
+    def show_guardar_base(self):
+        # Limpiar el contenido previo
+        for widget in self.content_frame.winfo_children():
+            widget.destroy()
+
+        # Mostrar la vista de guardar base
+        guardar = guardar_base.GuardarBase(self.content_frame)
+        guardar.pack(fill="both", expand=True, padx=5, pady=5)  # Ajusta márgenes internos
+
     def toggle_sidebar(self):
         """Abrir/cerrar el sidebar con animación."""
         if self.sidebar_open:
-            self.animate_sidebar(-self.sidebar_width)
+            self.sidebar_frame.place(x=-self.sidebar_width, y=0)  # Mover fuera de la pantalla
             self.sidebar_open = False
         else:
-            self.animate_sidebar(0)
+            self.sidebar_frame.place(x=0, y=0)  # Devolver a su lugar
             self.sidebar_open = True
-
-    def animate_sidebar(self, target_x):
-        """Animar el movimiento del sidebar."""
-        step = 20 if target_x > self.sidebar_frame.winfo_x() else -20
-        for x in range(self.sidebar_frame.winfo_x(), target_x, step):
-            self.sidebar_frame.place(x=x, y=0)
-            self.sidebar_frame.update()
-        self.sidebar_frame.place(x=target_x, y=0)
 
     def animate_close_window(self):
         """Animar el cierre de la ventana."""
