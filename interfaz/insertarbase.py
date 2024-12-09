@@ -9,11 +9,7 @@ class InsertarBase(ctk.CTkFrame):
         self.master = parent
         self.configure(fg_color="#d9f5db")  # Fondo igual al principal
 
-        # Configuración de la ventana emergente (Toplevel)
-        root = ctk.CTkToplevel()
-        root.geometry('380x450')
-        root.title('Insertar un Filum')
-        root.resizable(width=False, height=False)
+
 
         self.pack()
 

@@ -9,11 +9,6 @@ class GuardarBase(ctk.CTkFrame):
         self.master = parent
         self.configure(fg_color="#d9f5db")  
 
-        # Configuración de la ventana emergente (Toplevel)
-        root = ctk.CTkToplevel()
-        root.geometry('400x220')
-        root.title('Guardar Base de Conocimientos')
-        root.resizable(width=False, height=False)
 
         self.pack()
 

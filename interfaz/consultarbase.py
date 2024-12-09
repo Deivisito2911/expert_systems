@@ -1,4 +1,3 @@
-import tkinter.messagebox as messagebox
 import customtkinter as ctk
 from experto_general.response import Response
 from acciones import engine
@@ -27,10 +26,10 @@ class ConsultarBase(ctk.CTkFrame):
 
         # Botones "Sí" y "No"
         self.btn_yes = ctk.CTkButton(self, text="Sí", command=self._send_yes, **button_style)
-        self.btn_yes.pack(side="left", padx=30, pady=5)
+        self.btn_yes.pack(side="left", padx=20, pady=50)
 
         self.btn_no = ctk.CTkButton(self, text="No", command=self._send_no, **button_style)
-        self.btn_no.pack(side="right", padx=5, pady=5)
+        self.btn_no.pack(side="left", padx=0, pady=50)
 
         # Empacar el marco
         self.pack(padx=20, pady=20)
@@ -38,6 +37,10 @@ class ConsultarBase(ctk.CTkFrame):
         # Iniciar las preguntas
         self.questions = engine.generate()
         self._get_question(Response.NO)
+
+        # Marco para mostrar los resultados
+        self.result_frame = ctk.CTkFrame(self)
+        self.result_frame.pack(pady=15, padx=10, fill="both", expand=True)
 
     def _send_yes(self):
         self._get_question(Response.YES)
@@ -59,12 +62,40 @@ class ConsultarBase(ctk.CTkFrame):
             self._finished()
 
     def _finished(self):
+        # Limpiar cualquier mensaje previo
+        if hasattr(self, "result_label"):
+            self.result_label.destroy()  # Elimina el Label existente antes de crear uno nuevo
+
         if engine.result is None:
-            messagebox.showerror("Error", "No se encontró ningún filum que cumpla con las características dadas.")
+            # Mensaje de error si no se encontró un filum
+            self.result_label = ctk.CTkLabel(
+                self.result_frame,
+                text="No se encontró ningún filum que cumpla con las características dadas.",
+                font=("Helvetica", 14),
+                text_color="red",
+                wraplength=400,
+            )
         else:
-            reason = f"Características coincidentes:\n"
+            # Mensaje de éxito si se encontró un filum
+            reason = "Características coincidentes:\n"
             for prop in engine.result.properties:
                 reason += f"- {prop.name}\n"
-            messagebox.showinfo("Filum encontrado",
-                                f"El filum es: {engine.result.name}\n\n{engine.result.description}\n\n" + reason)
-        self.destroy()
+
+            # Construir el mensaje completo
+            result_text = (
+                f"El filum es: {engine.result.name}\n\n"
+                f"{engine.result.description}\n\n"
+                f"{reason}"
+            )
+
+            # Mostrar el resultado
+            self.result_label = ctk.CTkLabel(
+                self.result_frame,
+                text=result_text,
+                font=("Helvetica", 14),
+                justify="left",
+                wraplength=400,
+            )
+
+        # Empacar el resultado
+        self.result_label.pack(pady=5, padx=5)
