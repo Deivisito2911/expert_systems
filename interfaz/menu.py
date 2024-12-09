@@ -11,153 +11,86 @@ class Interfaz(ctk.CTk):
         self.title('Sistema Experto UDO 2024')
         self.resizable(width=False, height=False)
 
-        # Configuración de colores y temas
-        ctk.set_appearance_mode("light")  # Modo claro
-        ctk.set_default_color_theme("green")  # Tema verde
-
-        # Fondo principal
-        self.configure(fg_color="#d9f5db")  # Color uniforme sin bordes blancos
-
-        # Cabecera centrada
+        # Cabecera simple
         self.lbl_base = ctk.CTkLabel(
             self,
             text="Sistema Experto UDO 2024",
-            font=("Helvetica", 28, "bold"),
-            text_color="#4CAF50",
-        )
-        self.lbl_base.pack(pady=10)  # Centrado con padding superior
-
-        # Variables para el sidebar
-        self.sidebar_open = True  # Siempre visible al principio
-        self.sidebar_width = 200
-
-        # Contenedor del sidebar sin bordes blancos
-        self.sidebar_frame = ctk.CTkFrame(self, width=self.sidebar_width, fg_color="#4CAF50", corner_radius=0)
-        self.sidebar_frame.place(x=0, y=0, relheight=1)
-
-        # Botones del sidebar con iconos ASCII
-        self.add_sidebar_buttons()
-
-        # Contenedor del área de contenido principal (ajustado a la izquierda)
-        self.content_frame = ctk.CTkFrame(self, fg_color="#f0f0f0", corner_radius=10)
-        self.content_frame.place(
-            x=self.sidebar_width + -50,  # Pegado a la sidebar con un pequeño margen
-            y=60,
-            relwidth=1 - ((self.sidebar_width + 10) / 800),  # Ajusta el ancho
-            relheight=0.9,  # Ajusta la altura
-        )
-
-        # Botón para abrir/cerrar el sidebar
-        self.menu_button = ctk.CTkButton(
-            self,
-            text="☰",  # Icono de menú
-            width=50,
-            height=50,
-            fg_color="#D32F2F",
-            hover_color="#B71C1C",
             font=("Helvetica", 20, "bold"),
-            text_color="white",
-            corner_radius=10,  # Ajuste para evitar esquinas blancas
-            command=self.toggle_sidebar
         )
-        self.menu_button.place(x=10, y=10)
+        self.lbl_base.pack(pady=10)
 
-        # Configurar evento de cierre de ventana con animación
-        self.protocol("WM_DELETE_WINDOW", self.animate_close_window)
+        # Contenedor del área de contenido principal
+        self.content_frame = ctk.CTkFrame(self)
+        self.content_frame.place(relx=0.5, rely=0.5, anchor="center", relwidth=0.9, relheight=0.8)
 
-    def add_sidebar_buttons(self):
-        """Añadir botones con iconos ASCII al sidebar."""
-        button_style = {
-            "width": 50,
-            "height": 50,
-            "corner_radius": 10,
-            "fg_color": "#4CAF50",
-            "hover_color": "#388E3C",
-            "text_color": "white",
-            "font": ("Courier", 20, "bold"),
-        }
+        # Contenedor de botones del menú principal
+        self.menu_buttons_frame = ctk.CTkFrame(self)
+        self.menu_buttons_frame.pack(pady=20)
 
+        # Botones principales
         self.btn_insertar = ctk.CTkButton(
-            self.sidebar_frame,
-            text="📥",  # Icono ASCII para insertar
-            command=self.show_insertar_base,
-            **button_style
+            self.menu_buttons_frame, text="Insertar", command=self.show_insertar_base
         )
-        self.btn_insertar.pack(pady=(70, 10), padx=10, anchor="w")  # Alineado a la izquierda
+        self.btn_insertar.pack(side="left", padx=20)
 
         self.btn_consultar = ctk.CTkButton(
-            self.sidebar_frame,
-            text="🔍",  # Icono ASCII para consultar
-            command=self.show_consultar_base,
-            **button_style
+            self.menu_buttons_frame, text="Consultar", command=self.show_consultar_base
         )
-        self.btn_consultar.pack(pady=10, padx=10, anchor="w")  # Alineado a la izquierda
+        self.btn_consultar.pack(side="left", padx=20)
 
         self.btn_guardar = ctk.CTkButton(
-            self.sidebar_frame,
-            text="💾",  # Icono ASCII para guardar
-            command=self.show_guardar_base,
-            **button_style
+            self.menu_buttons_frame, text="Guardar", command=self.show_guardar_base
         )
-        self.btn_guardar.pack(pady=10, padx=10, anchor="w")  # Alineado a la izquierda
+        self.btn_guardar.pack(side="left", padx=20)
 
-        # Botón "Salir" ajustado y movido hacia abajo
-        self.btn_salir = ctk.CTkButton(
-            self.sidebar_frame,
-            text="❌",  # Icono ASCII para salir
-            command=self.destroy,
-            width=50,  # Tamaño reducido
-            height=50,
-            corner_radius=10,
-            fg_color="#D32F2F",  # Rojo oscuro específico para este botón
-            hover_color="#B71C1C",
-            text_color="white",
-            font=("Courier", 20, "bold"),
-        )
-        self.btn_salir.pack(side="bottom", pady=(20, 20), padx=10, anchor="w")  # Alineado a la izquierda y al fondo
+        self.btn_salir = ctk.CTkButton(self, text="Salir", command=self.destroy)
+        self.btn_salir.pack(side="bottom", pady=10)
+
+        # Botón para volver al menú principal
+        self.btn_volver = None  # Se crea dinámicamente
 
     def show_insertar_base(self):
-        # Limpiar el contenido previo
-        for widget in self.content_frame.winfo_children():
-            widget.destroy()
-
-        # Mostrar la vista de insertar base
-        insertar = insertar_base.InsertarBase(self.content_frame)
-        insertar.pack(fill="both", expand=True, padx=5, pady=5)  # Ajusta márgenes internos
+        self.show_option(insertar_base.InsertarBase)
 
     def show_consultar_base(self):
-        # Limpiar el contenido previo
-        for widget in self.content_frame.winfo_children():
-            widget.destroy()
-
-        # Mostrar la vista de consultar base
-        consultar = consultar_base.ConsultarBase(self.content_frame)
-        consultar.pack(fill="both", expand=True, padx=0, pady=5)  # Ajusta márgenes internos
+        self.show_option(consultar_base.ConsultarBase)
 
     def show_guardar_base(self):
-        # Limpiar el contenido previo
+        self.show_option(guardar_base.GuardarBase)
+
+    def show_option(self, FrameClass):
+        """Muestra la vista correspondiente y oculta el menú principal."""
+        self.menu_buttons_frame.pack_forget()  # Ocultar botones principales
+
+        # Limpiar contenido anterior en el frame principal
         for widget in self.content_frame.winfo_children():
             widget.destroy()
 
-        # Mostrar la vista de guardar base
-        guardar = guardar_base.GuardarBase(self.content_frame)
-        guardar.pack(fill="both", expand=True, padx=5, pady=5)  # Ajusta márgenes internos
+        # Mostrar el contenido de la opción seleccionada
+        content = FrameClass(self.content_frame)
+        content.pack(fill="both", expand=True)
 
-    def toggle_sidebar(self):
-        """Abrir/cerrar el sidebar con animación."""
-        if self.sidebar_open:
-            self.sidebar_frame.place(x=-self.sidebar_width, y=0)  # Mover fuera de la pantalla
-            self.sidebar_open = False
-        else:
-            self.sidebar_frame.place(x=0, y=0)  # Devolver a su lugar
-            self.sidebar_open = True
+        # Crear botón de volver
+        if self.btn_volver is None:
+            self.btn_volver = ctk.CTkButton(
+                self,
+                text="← Volver",
+                command=self.volver_al_menu
+            )
+        self.btn_volver.pack(side="top", pady=10)
 
-    def animate_close_window(self):
-        """Animar el cierre de la ventana."""
-        for size in range(800, 0, -20):  # Reducir tamaño gradualmente
-            self.geometry(f"{size}x{int(size * 0.625)}")
-            self.update()
-        self.destroy()
+    def volver_al_menu(self):
+        """Vuelve al menú principal y oculta el contenido actual."""
+        # Ocultar botón de volver
+        if self.btn_volver:
+            self.btn_volver.pack_forget()
+
+        # Limpiar contenido actual
+        for widget in self.content_frame.winfo_children():
+            widget.destroy()
+
+        # Mostrar botones del menú principal
+        self.menu_buttons_frame.pack(pady=20)
 
 
 # Inicialización de la interfaz
