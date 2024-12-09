@@ -7,7 +7,7 @@ class GuardarBase(ctk.CTkFrame):
     def __init__(self, parent):
         super().__init__(parent)
         self.master = parent
-        self.configure(fg_color="#d9f5db")  # Fondo igual al principal
+        self.configure(fg_color="#d9f5db")  
 
         # Configuración de la ventana emergente (Toplevel)
         root = ctk.CTkToplevel()
