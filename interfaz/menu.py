@@ -10,6 +10,7 @@ class Interfaz(ctk.CTk):
         self.geometry('800x500')
         self.title('Sistema Experto UDO 2024')
         self.resizable(width=False, height=False)
+        self.iconbitmap(r"interfaz\icon.ico")  # Solucionado el problema de la ruta
 
         # Cabecera simple
         self.lbl_base = ctk.CTkLabel(
@@ -28,26 +29,38 @@ class Interfaz(ctk.CTk):
         self.menu_buttons_frame.pack(pady=20)
 
         # Botones principales
-        self.btn_insertar = ctk.CTkButton(
-            self.menu_buttons_frame, text="Insertar", command=self.show_insertar_base
+        self.btn_insertar = self.create_button(
+            self.menu_buttons_frame, "Insertar", self.show_insertar_base
         )
         self.btn_insertar.pack(side="left", padx=20)
 
-        self.btn_consultar = ctk.CTkButton(
-            self.menu_buttons_frame, text="Consultar", command=self.show_consultar_base
+        self.btn_consultar = self.create_button(
+            self.menu_buttons_frame, "Consultar", self.show_consultar_base
         )
         self.btn_consultar.pack(side="left", padx=20)
 
-        self.btn_guardar = ctk.CTkButton(
-            self.menu_buttons_frame, text="Guardar", command=self.show_guardar_base
+        self.btn_guardar = self.create_button(
+            self.menu_buttons_frame, "Guardar", self.show_guardar_base
         )
         self.btn_guardar.pack(side="left", padx=20)
 
-        self.btn_salir = ctk.CTkButton(self, text="Salir", command=self.destroy)
+        self.btn_salir = self.create_button(self, "Salir", self.destroy)
         self.btn_salir.pack(side="bottom", pady=10)
 
         # Botón para volver al menú principal
         self.btn_volver = None  # Se crea dinámicamente
+
+    def create_button(self, parent, text, command):
+        """Crea un botón con estilo uniforme."""
+        return ctk.CTkButton(
+            parent,
+            text=text,
+            command=command,
+            fg_color="#009268",
+            hover_color="#007a5f",
+            text_color="white",
+            font=("Helvetica", 12, "bold"),
+        )
 
     def show_insertar_base(self):
         self.show_option(insertar_base.InsertarBase)
@@ -72,10 +85,10 @@ class Interfaz(ctk.CTk):
 
         # Crear botón de volver
         if self.btn_volver is None:
-            self.btn_volver = ctk.CTkButton(
+            self.btn_volver = self.create_button(
                 self,
-                text="← Volver",
-                command=self.volver_al_menu
+                "← Volver",
+                self.volver_al_menu,
             )
         self.btn_volver.pack(side="top", pady=10)
 

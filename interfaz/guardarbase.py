@@ -6,7 +6,6 @@ class GuardarBase(ctk.CTkFrame):
     def __init__(self, parent):
         super().__init__(parent)
         self.master = parent
-        self.pack()
         self.pack(padx=10, pady=50)
 
         # Etiqueta de título
@@ -41,4 +40,13 @@ class GuardarBase(ctk.CTkFrame):
         ruta_completa = os.path.join(subcarpeta, self.txt_file.get())
         print(f"Cargando archivo desde: {ruta_completa}")
         acciones.cargar(ruta_completa)
-        self.master.destroy()
+
+
+
+# Ejemplo del marco del menú principal
+class MenuPrincipal(ctk.CTkFrame):
+    def __init__(self, parent):
+        super().__init__(parent)
+        self.pack()
+        ctk.CTkLabel(self, text="Menú Principal", font=("Helvetica", 20)).pack(pady=20)
+        ctk.CTkButton(self, text="Ir a Guardar Base", command=lambda: GuardarBase(parent)).pack(pady=10)
