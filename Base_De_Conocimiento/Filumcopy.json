@@ -78,12 +78,96 @@
         "Tiene Simetría Bilateral",
         "Tiene capa germinales Triploblástico",
         "Tiene Cavidad corporal Celomado",
+        "Es segmentado",
+        "Tiene sistema digestivo completo",
+        "Tiene sistema nervioso Ganglionar",
+        "Tiene soporte corporal Hidrostático",
+        "Tiene reproduccion Sexual",
+        "Tiene Habitat acuatica",
+        "Tiene Habitat terrestre"
+      ]
+    },
+    {
+      "name": "Mollusca",
+      "description": "Pulpos, almejas, caracoles, calamares. Los moluscos conforman un grupo extremadamente diverso de animales que ha colonizado exitosamente nuestro planeta. Aunque íntimamente ligados al agua, existen muchos que son terrestres y podemos verlos recorriendo nuestros parques y jardines.",
+      "props": [
+        "Tiene Organizacion de Organos",
+        "Tiene Simetría Bilateral",
+        "Tiene capa germinales Triploblástico",
+        "Tiene Cavidad corporal Celomado",
+        "No es segmentado",
+        "Tiene sistema digestivo completo",
+        "Tiene sistema nervioso Ganglionar",
+        "Tiene soporte corporal Exoesqueleto",
+        "Tiene reproduccion Sexual",
+        "Tiene Habitat acuatica",
+        "Tiene Habitat terrestre"
+      ]
+    },
+    {
+      "name": "Nematoda",
+      "description": "Es el cuarto filo más grande del reino Animalia, con más de 25,000 especies descritas, y un número estimado de medio millón de especies. Son pseudocelomados, y pueden ser tanto acuáticos como terrestres. Pueden ser de vida libre o parásitos de plantas y animales, siendo importantes agentes de enfermedades humanas y de ganado o de cultivos.",
+      "props": [
+        "Tiene Organizacion de Organos",
+        "Tiene Simetría Bilateral",
+        "Tiene capa germinales Triploblástico",
+        "Tiene Cavidad corporal Pseudocelomado",
         "No es segmentado",
         "Tiene sistema digestivo completo",
         "Tiene sistema nervioso Ganglionar",
         "Tiene soporte corporal Hidrostático",
         "Tiene reproduccion Sexual",
-        "Tiene reproduccion Asexual",
+        "Tiene Habitat acuatica",
+        "Es un Parasito"
+      ]
+    },
+    {
+      "name": "Arthropoda",
+      "description": "El phylum Arthropoda constituye el más grande y diversificado del Reino Animal. Con más de 1.200.000 especies, Insectos en su mayoría, representan más del 80 % de las especies animales conocidas. Los Artrópodos tiene el cuerpo formado por segmentos repetidos, metámeros, la evolución en el grupo va a conducir a un proceso de fusión de metámeros, conocido como tagmosis, que en la mayoría de los casos va a tener como resultado la división del cuerpo en dos o tres regiones.",
+      "props": [
+        "Tiene Organizacion de Organos",
+        "Tiene Simetría Bilateral",
+        "Tiene capa germinales Triploblástico",
+        "Tiene Cavidad corporal Celomado",
+        "Es segmentado",
+        "Tiene sistema digestivo completo",
+        "Tiene sistema nervioso Ganglionar",
+        "Tiene soporte corporal Exoesqueleto",
+        "Tiene reproduccion Sexual",
+        "Tiene Habitat acuatica",
+        "Tiene Habitat terrestre",
+        "Tiene Habitat aerea"
+      ]
+    },
+    {
+      "name": "Echinodermata",
+      "description": "Los Equinodermos constituyen un phylum del reino Animalia, que agrupa las conocidos comunmente como estrellas de mar, estrellas con plumas, lirios de mar, ofiuros, erizos de mar y holoturias o cohombros de mar. Su nombre proviene del griego echinos (espina) y dermis (piel), y alude a su exclusivo exoesqueleto formado por osículos calcáreos. Con aproximadamente unas 7.000 especies actuales, su historia se remonta a principios del Cámbrico​, hace aproximadamente 540 millones de años, siendo uno de los grupos mejor representados en el registro fósil.",
+      "props": [
+        "Tiene Organizacion de Organos",
+        "Tiene Simetría Radial",
+        "Tiene capa germinales Triploblástico",
+        "Tiene Cavidad corporal Celomado",
+        "No es segmentado",
+        "Tiene sistema digestivo completo",
+        "Tiene sistema nervioso Difuso",
+        "Tiene soporte corporal Endoesqueleto",
+        "Tiene reproduccion Sexual",
+        "Tiene Habitat acuatica"
+      ]
+    },
+    {
+      "name": "Chordata",
+      "description": "Los Cordados (Chordata, del griego χορδωτά khordota ‘con cuerda')  constituyen un phylum dentro del reino Animal, caracterizado por la presencia de una cuerda dorsal o notocorda de células turgentes, a la que deben su nombre. Se conocen casi 65.000 especies actuales, siendo el tercer phylum Animal más numeroso (después de los Artrópodos y los Moluscos), con la mayoría de ellas pertenecientes al subphylum de los Vertebrados, representando los peces óseos (Clase Actinopterygii), con unas 22.000 especies, el grupo más abundante. Los Cordados están emparentados con los phylum Echinodermata y Hemichordata, aunque aparentemente sean muy diferentes de estos, ya que se separaron de su ancestro común muy tempranamente. Los fósiles del Cordado más antiguo conocido proceden del Cámbrico inferior, y tienen una edad aproximada de 525 millones de años.",
+      "props": [
+        "Tiene Organizacion en Sistemas",
+        "Tiene Simetría Bilateral",
+        "Tiene capa germinales Triploblástico",
+        "Tiene Cavidad corporal Celomado",
+        "Es segmentado",
+        "Tiene sistema digestivo completo",
+        "Tiene sistema nervioso Centralizado",
+        "Tiene soporte corporal Endoesqueleto",
+        "Tiene reproduccion Sexual",
         "Tiene Habitat acuatica",
         "Tiene Habitat terrestre"
       ]
