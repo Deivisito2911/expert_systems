@@ -1,61 +1,53 @@
-import tkinter as tk
-import tkinter.messagebox as messagebox
+import customtkinter as ctk
 from experto_general.response import Response
 from acciones import engine
 
+class ConsultarBase(ctk.CTkFrame):
+    def __init__(self, parent):
+        super().__init__(parent)
+        self.pack(padx=10, pady=20)
 
-class ConsultarBase(tk.Frame):
+        # Etiqueta de la pregunta
+        self.lbl_question = ctk.CTkLabel(self, text="", font=("Helvetica", 20))
+        self.lbl_question.pack(pady=50)
 
-    def __init__(self):
-        self.master = tk.Toplevel()
-        super().__init__(self.master)
+        # Botones "Sí" y "No"
+        self.btn_yes = ctk.CTkButton(self, text="Sí", command=lambda: self._get_question(Response.YES))
+        self.btn_yes.pack(side="left", padx=100, pady=10)
 
-        self.master.geometry('380x120')
-        self.master.title('Consultar al sistema')
-        self.master.resizable(width=False, height=False)
+        self.btn_no = ctk.CTkButton(self, text="No", command=lambda: self._get_question(Response.NO))
+        self.btn_no.pack(side="right", padx=100, pady=10)
 
-        self.lbl_question = tk.Label(self, text="Caracteristica")
-        self.lbl_question.pack(side="top", pady=20)
-        self.lbl_question.config(font=("Helvetica", 12))
-
-        self.btn_yes = tk.Button(self, text="Sí", width=20, command=self._send_yes)
-        self.btn_yes.pack(side="left", padx=5, pady=5)
-
-        self.btn_no = tk.Button(self, text="No", width=20, command=self._send_no)
-        self.btn_no.pack(side="right", padx=5, pady=5)
-
-        self.pack()
+        # Iniciar preguntas
         self.questions = engine.generate()
-        self._get_question(Response.NO)
-
-    def _send_yes(self):
-        self._get_question(Response.YES)
-
-    def _send_no(self):
         self._get_question(Response.NO)
 
     def _get_question(self, response: Response):
         try:
             engine.set_response(response)
             question = next(self.questions)
-
-            if question is not None:
-                self.lbl_question.config(text=f"¿{question.name}?")
+            if question:
+                self.lbl_question.configure(text=f"¿{question.name}?")
             else:
                 self._finished()
-
         except StopIteration:
             self._finished()
 
     def _finished(self):
-        if engine.result is None:
-            messagebox.showerror("Error",
-                                 "No se encontró ningun filum que cumpla con las caracteristicas dadas.")
-        else:
-            reason = f"Caracteristicas coincidentes:\n"
-            for prop in engine.result.properties:
-                reason += f"- {prop.name}\n"
-            messagebox.showinfo("Filum encontrado",
-                                f"El filum es : {engine.result.name}\n\n{engine.result.description}\n\n" + reason)
+        # Limpiar los widgets existentes
+        self.lbl_question.pack_forget()
+        self.btn_yes.pack_forget()
+        self.btn_no.pack_forget()
 
-        self.master.destroy()
+        # Mostrar el resultado
+        if engine.result:
+            result_text = (
+                f"El filum es: {engine.result.name}\n\n"
+                f"{engine.result.description}\n\n"
+                f"Características coincidentes:\n" +
+                "\n".join(f"- {prop.name}" for prop in engine.result.properties)
+            )
+        else:
+            result_text = "No se encontró ningún filum que cumpla con las características dadas."
+
+        ctk.CTkLabel(self, text=result_text, font=("Helvetica", 12), wraplength=400).pack(padx=10, pady=20)

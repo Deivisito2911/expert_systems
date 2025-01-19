@@ -1,40 +1,52 @@
-import tkinter as tk
+import customtkinter as ctk
 import acciones
+import os
 
+class GuardarBase(ctk.CTkFrame):
+    def __init__(self, parent):
+        super().__init__(parent)
+        self.master = parent
+        self.pack(padx=10, pady=50)
 
-class GuardarBase(tk.Frame):
+        # Etiqueta de título
+        self.lbl_base = ctk.CTkLabel(self, text="Cargar/Guardar Base", font=("Helvetica", 16))
+        self.lbl_base.pack(pady=20)
 
-    def __init__(self):
-        root = tk.Toplevel()
-        super().__init__(root)
-        root.geometry('400x220')
-        root.title('Guardar Base de Conocimientos')
-        root.resizable(width=False, height=False)
-        self.master = root
-        self.pack()
+        # Etiqueta para el nombre del archivo
+        self.lbl_file = ctk.CTkLabel(self, text="Nombre del archivo json: ")
+        self.lbl_file.pack()
 
-        self.lbl_base = tk.Label(self, text="Cargar/Guardar Base")
-        self.lbl_base.pack(side="top")
-        self.lbl_base.config(font=("Helvetica", 24))
+        # Campo de texto para ingresar el nombre del archivo
+        self.txt_file = ctk.CTkEntry(self, width=250)
+        self.txt_file.pack(pady=10)
 
-        self.lbl_file = tk.Label(self, text="Nombre del archivo json: ")
-        self.lbl_file.config(font=("Helvetica", 12))
-        self.lbl_file.pack(side="top")
-        self.txt_file = tk.Entry(self, width=50)
-        self.txt_file.pack(side="top", padx=5, pady=5)
+        # Botones para cargar y guardar
+        self.btn_cargar = ctk.CTkButton(self, text="Cargar", command=self.cargar_base_json)
+        self.btn_cargar.pack(pady=15)
 
-        self.btn_cargar = tk.Button(self, text="Cargar", width=50, command=self.cargar_base_json)
-        self.btn_cargar.pack(side="top", padx=5, pady=5)
-
-        self.btn_guardar = tk.Button(self, text="Guardar", width=50, command=self.guardar_base_json)
-        self.btn_guardar.pack(side="top", padx=5, pady=5)
-
-        self.quit = tk.Button(self, text="Cerrar", fg="red", width=50, command=self.master.destroy)
-        self.quit.pack(side="bottom", padx=5, pady=5)
+        self.btn_guardar = ctk.CTkButton(self, text="Guardar", command=self.guardar_base_json)
+        self.btn_guardar.pack(pady=15)
 
     def guardar_base_json(self):
-        acciones.guardar(self.txt_file.get())
+        subcarpeta = "Base_De_Conocimiento"
+        if not os.path.exists(subcarpeta):  # Si no existe la carpeta, la crea
+            os.makedirs(subcarpeta)
+        ruta_completa = os.path.join(subcarpeta, self.txt_file.get())
+        print(f"Guardando archivo en: {ruta_completa}")
+        acciones.guardar(ruta_completa)
 
     def cargar_base_json(self):
-        acciones.cargar(self.txt_file.get())
-        self.master.destroy()
+        subcarpeta = "Base_De_Conocimiento"
+        ruta_completa = os.path.join(subcarpeta, self.txt_file.get())
+        print(f"Cargando archivo desde: {ruta_completa}")
+        acciones.cargar(ruta_completa)
+
+
+
+# Ejemplo del marco del menú principal
+class MenuPrincipal(ctk.CTkFrame):
+    def __init__(self, parent):
+        super().__init__(parent)
+        self.pack()
+        ctk.CTkLabel(self, text="Menú Principal", font=("Helvetica", 20)).pack(pady=20)
+        ctk.CTkButton(self, text="Ir a Guardar Base", command=lambda: GuardarBase(parent)).pack(pady=10)
