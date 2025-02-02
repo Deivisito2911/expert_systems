@@ -82,23 +82,24 @@ class ConsultarBase(ctk.CTkFrame):
                 # Mostrar la imagen izquierda
                 self.lbl_imagen_izquierda = ctk.CTkLabel(frame_contenido, image=self.imagen, text="")
                 self.lbl_imagen_izquierda.grid(row=0, column=0, padx=10)
-
+                
+                # Mostrar la imagen derecha
+                self.lbl_imagen_derecha = ctk.CTkLabel(frame_contenido, image=self.imagen, text="")
+                self.lbl_imagen_derecha.grid(row=0, column=2, padx=10)
+                
                 # Mostrar el texto
                 result_text = (
                     f"El filum es: {engine.result.name}\n\n"
                     f"{engine.result.description}\n\n"
-                    f"Características coincidentes:\n" +
-                    "\n".join(f"- {prop.name}" for prop in engine.result.properties)
+                    f"Características coincidentes:\n" + "\n".join(f"- {prop.name}" for prop in engine.result.properties)
                 )
                 label_texto = ctk.CTkLabel(frame_contenido, text=result_text, font=("Helvetica", 12), wraplength=400)
-                label_texto.grid(row=0, column=1, padx=15)
+                label_texto.grid(row=0, column=1, padx=10)
 
-                # Mostrar la imagen derecha
-                self.lbl_imagen_derecha = ctk.CTkLabel(frame_contenido, image=self.imagen, text="")
-                self.lbl_imagen_derecha.grid(row=0, column=2, padx=10)
+                
             except Exception as e:  # Captura cualquier excepción al cargar la imagen
                 print(f"Error al cargar la imagen: {e}")
         else:
             result_text = "No se encontró ningún filum que cumpla con las características dadas."
 
-        ctk.CTkLabel(self, text=result_text, font=("Helvetica", 12), wraplength=400).pack(padx=10, pady=20)
+        #ctk.CTkLabel(self, text=result_text, font=("Helvetica", 12), wraplength=400).pack(padx=10, pady=20)
