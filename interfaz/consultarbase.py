@@ -1,6 +1,7 @@
 import customtkinter as ctk
 from experto_general.response import Response
 from acciones import engine
+from PIL import Image
 
 class ConsultarBase(ctk.CTkFrame):
     def __init__(self, parent):
@@ -62,6 +63,30 @@ class ConsultarBase(ctk.CTkFrame):
 
         # Mostrar el resultado
         if engine.result:
+            # Crear el nombre del archivo de imagen
+            image_name = f"{engine.result.name}.png"  # Asume que las imágenes son PNG
+
+            # Construir la URL de la imagen (ajusta la URL base según tu configuración)
+            #image_url = f"{image_name}"  # Reemplaza con tu URL base
+
+            try:
+                # Intentar abrir la imagen desde la URL
+                #image = Image.open(image_url)  # Necesita una URL válida o una ruta de archivo
+                self.imagen = ctk.CTkImage(
+                    light_image= Image.open(rf"interfaz\{image_name}"),
+                    size=(200, 200)
+                )
+                self.lbl_imagen = ctk.CTkLabel(
+                    self,
+                    image=self.imagen,
+                    text=""
+                )
+                self.lbl_imagen.pack(pady=20)
+
+            except Exception as e:  # Captura cualquier excepción al cargar la imagen
+                print(f"Error al cargar la imagen: {e}")
+
+            # Mostrar el texto con la información
             result_text = (
                 f"El filum es: {engine.result.name}\n\n"
                 f"{engine.result.description}\n\n"
