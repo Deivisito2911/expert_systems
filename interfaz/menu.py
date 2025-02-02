@@ -10,7 +10,7 @@ class Interfaz(ctk.CTk):
         self.geometry('800x500')
         self.title('Sistema Experto UDO 2024')
         self.resizable(width=False, height=False)
-        self.iconbitmap(r"interfaz\icon.ico")  # Solucionado el problema de la ruta
+        self.iconbitmap(r"interfaz\images\icon.ico")  # Solucionado el problema de la ruta
 
         # Cabecera simple
         self.lbl_base = ctk.CTkLabel(
@@ -26,7 +26,7 @@ class Interfaz(ctk.CTk):
         self.content_frame.place(relx=0.5, rely=0.5, anchor="center", relwidth=0.9, relheight=0.8)
         
         self.imagen = ctk.CTkImage(
-            light_image= Image.open(r"interfaz\udo.png"),  # Ruta de la imagen
+            light_image= Image.open(r"interfaz\images\udo.png"),  # Ruta de la imagen
             size=(200, 200)  # Tamaño de la imagen (ancho, alto)
         )
         self.lbl_imagen = ctk.CTkLabel(
