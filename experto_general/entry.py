@@ -11,7 +11,7 @@ class Entry:
         """
         Crea una entrada vacía de la base de conocimientos
 
-         :param name: Identificador de la entrada
+        :param name: Identificador de la entrada
         """
         self.properties: List[Property] = []
         self.name = name.strip()
