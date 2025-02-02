@@ -1,7 +1,8 @@
 import customtkinter as ctk
 from experto_general.response import Response
 from acciones import engine
-from PIL import Image
+from PIL import Image, ImageTk
+import os
 
 class ConsultarBase(ctk.CTkFrame):
     def __init__(self, parent):
@@ -64,35 +65,39 @@ class ConsultarBase(ctk.CTkFrame):
         # Mostrar el resultado
         if engine.result:
             # Crear el nombre del archivo de imagen
-            image_name = f"{engine.result.name}.png"  # Asume que las imágenes son PNG
+            image_name = f"{engine.result.name}.png"
 
-            # Construir la URL de la imagen (ajusta la URL base según tu configuración)
-            #image_url = f"{image_name}"  # Reemplaza con tu URL base
+            # Construir la ruta completa a la imagen
+            image_path = os.path.join("interfaz", "images", image_name)
 
             try:
-                # Intentar abrir la imagen desde la URL
-                #image = Image.open(image_url)  # Necesita una URL válida o una ruta de archivo
-                self.imagen = ctk.CTkImage(
-                    light_image= Image.open(rf"interfaz\{image_name}"),
-                    size=(200, 200)
-                )
-                self.lbl_imagen = ctk.CTkLabel(
-                    self,
-                    image=self.imagen,
-                    text=""
-                )
-                self.lbl_imagen.pack(pady=20)
+                # Cargar la imagen
+                image = Image.open(image_path)
+                self.imagen = ctk.CTkImage(light_image=image, size=(120, 120))
 
+                # Crear frame para el texto y las imágenes
+                frame_contenido = ctk.CTkFrame(self)
+                frame_contenido.pack(pady=15)
+
+                # Mostrar la imagen izquierda
+                self.lbl_imagen_izquierda = ctk.CTkLabel(frame_contenido, image=self.imagen, text="")
+                self.lbl_imagen_izquierda.grid(row=0, column=0, padx=10)
+
+                # Mostrar el texto
+                result_text = (
+                    f"El filum es: {engine.result.name}\n\n"
+                    f"{engine.result.description}\n\n"
+                    f"Características coincidentes:\n" +
+                    "\n".join(f"- {prop.name}" for prop in engine.result.properties)
+                )
+                label_texto = ctk.CTkLabel(frame_contenido, text=result_text, font=("Helvetica", 12), wraplength=400)
+                label_texto.grid(row=0, column=1, padx=15)
+
+                # Mostrar la imagen derecha
+                self.lbl_imagen_derecha = ctk.CTkLabel(frame_contenido, image=self.imagen, text="")
+                self.lbl_imagen_derecha.grid(row=0, column=2, padx=10)
             except Exception as e:  # Captura cualquier excepción al cargar la imagen
                 print(f"Error al cargar la imagen: {e}")
-
-            # Mostrar el texto con la información
-            result_text = (
-                f"El filum es: {engine.result.name}\n\n"
-                f"{engine.result.description}\n\n"
-                f"Características coincidentes:\n" +
-                "\n".join(f"- {prop.name}" for prop in engine.result.properties)
-            )
         else:
             result_text = "No se encontró ningún filum que cumpla con las características dadas."
 
