@@ -2,12 +2,15 @@ import customtkinter as ctk
 from tkinter import ttk
 import acciones
 
-
 class InsertarBase(ctk.CTkFrame):
     def __init__(self, parent):
         super().__init__(parent)
         self.master = parent
         self.pack(fill="both", expand=True)
+
+        # Paleta de colores
+        self.color_verde = "#07bb87"
+        self.color_verde_hover = "#007a5f"
 
         # Contenedor principal con dos secciones: izquierda (árbol) y derecha (campos)
         self.left_frame = ctk.CTkFrame(self)
@@ -41,7 +44,12 @@ class InsertarBase(ctk.CTkFrame):
         self.txt_prop.pack(pady=5)
 
         self.btn_insertar = ctk.CTkButton(
-            self.right_frame, text="Agregar", command=self.add_propiedad
+            self.right_frame,
+            text="Agregar",
+            command=self.add_propiedad,
+            text_color="#2b2b2b",
+            fg_color=self.color_verde,
+            hover_color=self.color_verde_hover,
         )
         self.btn_insertar.pack(pady=10)
 

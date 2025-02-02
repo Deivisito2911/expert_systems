@@ -6,7 +6,14 @@ class GuardarBase(ctk.CTkFrame):
     def __init__(self, parent):
         super().__init__(parent)
         self.master = parent
-        self.pack(padx=10, pady=50)
+        self.pack(fill="both", expand=True)
+
+        # Paleta de colores
+        self.color_verde = "#07bb87"
+        self.color_verde_hover = "#007a5f"
+
+        self.lbl_base = ctk.CTkLabel(self, text="")
+        self.lbl_base.pack(pady=10)
 
         # Etiqueta de título
         self.lbl_base = ctk.CTkLabel(self, text="Cargar/Guardar Base", font=("Helvetica", 16))
@@ -21,10 +28,24 @@ class GuardarBase(ctk.CTkFrame):
         self.txt_file.pack(pady=10)
 
         # Botones para cargar y guardar
-        self.btn_cargar = ctk.CTkButton(self, text="Cargar", command=self.cargar_base_json)
+        self.btn_cargar = ctk.CTkButton(
+            self,
+            text="Cargar",
+            text_color="#333333",
+            command=self.cargar_base_json,
+            fg_color=self.color_verde,
+            hover_color=self.color_verde_hover,
+        )
         self.btn_cargar.pack(pady=15)
 
-        self.btn_guardar = ctk.CTkButton(self, text="Guardar", command=self.guardar_base_json)
+        self.btn_guardar = ctk.CTkButton(
+            self,
+            text="Guardar",
+            text_color="#333333",
+            command=self.guardar_base_json,
+            fg_color=self.color_verde,
+            hover_color=self.color_verde_hover,
+        )
         self.btn_guardar.pack(pady=15)
 
     def guardar_base_json(self):
@@ -40,13 +61,3 @@ class GuardarBase(ctk.CTkFrame):
         ruta_completa = os.path.join(subcarpeta, self.txt_file.get())
         print(f"Cargando archivo desde: {ruta_completa}")
         acciones.cargar(ruta_completa)
-
-
-
-# Ejemplo del marco del menú principal
-class MenuPrincipal(ctk.CTkFrame):
-    def __init__(self, parent):
-        super().__init__(parent)
-        self.pack()
-        ctk.CTkLabel(self, text="Menú Principal", font=("Helvetica", 20)).pack(pady=20)
-        ctk.CTkButton(self, text="Ir a Guardar Base", command=lambda: GuardarBase(parent)).pack(pady=10)
