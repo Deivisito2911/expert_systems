@@ -15,6 +15,9 @@ Utilizar [`customtkinter`](https://customtkinter.tomschimansky.com)
 pip install --user customtkinter
 ```
 
+```bash
+pip install pillow
+```
 ## Ejecutar
 
 ```bash
