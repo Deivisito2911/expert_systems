@@ -29,7 +29,6 @@ class Engine:
     """
     Motor de inferencia
     """
-
     def __init__(self):
         """
         Inicializa una instancia de motor de inferencia
