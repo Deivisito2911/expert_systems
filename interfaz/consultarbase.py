@@ -13,9 +13,6 @@ class ConsultarBase(ctk.CTkFrame):
         self.color_verde = "#07bb87"
         self.color_verde_hover = "#007a5f"
 
-        self.lbl_base = ctk.CTkLabel(self, text="")
-        self.lbl_base.pack(pady=5)  # Reducido el espacio arriba
-
         # Etiqueta de la pregunta
         self.lbl_question = ctk.CTkLabel(self, text="", font=("Helvetica", 20))
         self.lbl_question.pack(pady=30)  # Movido hacia arriba
@@ -72,7 +69,6 @@ class ConsultarBase(ctk.CTkFrame):
                 if image_path:
                     image = Image.open(image_path)
                     self.imagen_caracteristica = ctk.CTkImage(light_image=image, size=(200, 200))
-
                     self.lbl_imagen_caracteristica.configure(image=self.imagen_caracteristica, text="")
                 else:
                     self.lbl_imagen_caracteristica.configure(text="Imagen no disponible")
@@ -85,10 +81,8 @@ class ConsultarBase(ctk.CTkFrame):
 
     def _finished(self):
         # Limpiar los widgets existentes
-        self.lbl_question.pack_forget()
-        self.lbl_imagen_caracteristica.pack_forget()
-        self.btn_yes.pack_forget()
-        self.btn_no.pack_forget()
+        for widget in self.winfo_children():
+            widget.pack_forget()
 
         # Mostrar el resultado
         if engine.result:
@@ -107,17 +101,13 @@ class ConsultarBase(ctk.CTkFrame):
                     image = Image.open(image_path)
                     self.imagen = ctk.CTkImage(light_image=image, size=(120, 120))
 
-                    # Crear frame para el contenido
+                    # Crear frame para el contenido y colocarlo arriba
                     frame_contenido = ctk.CTkFrame(self)
-                    frame_contenido.pack(pady=5 ,anchor="n")
+                    frame_contenido.pack(fill="both", expand=True, pady=10)
 
                     # Imagen izquierda
                     self.lbl_imagen_izquierda = ctk.CTkLabel(frame_contenido, image=self.imagen, text="")
                     self.lbl_imagen_izquierda.grid(row=0, column=0, padx=10)
-
-                    # Imagen derecha
-                    self.lbl_imagen_derecha = ctk.CTkLabel(frame_contenido, image=self.imagen, text="")
-                    self.lbl_imagen_derecha.grid(row=0, column=2, padx=10)
 
                     # Texto del resultado
                     result_text = (
@@ -128,6 +118,10 @@ class ConsultarBase(ctk.CTkFrame):
                     label_texto = ctk.CTkLabel(frame_contenido, text=result_text, font=("Helvetica", 12), wraplength=400)
                     label_texto.grid(row=0, column=1, padx=10)
 
+                    # Imagen derecha
+                    self.lbl_imagen_derecha = ctk.CTkLabel(frame_contenido, image=self.imagen, text="")
+                    self.lbl_imagen_derecha.grid(row=0, column=2, padx=10)
+
                 else:
                     print(f"No se encontró imagen para el filum: {engine.result.name}")
 
@@ -136,4 +130,5 @@ class ConsultarBase(ctk.CTkFrame):
 
         else:
             result_text = "No se encontró ningún filum que cumpla con las características dadas."
-            ctk.CTkLabel(self, text=result_text, font=("Helvetica", 12), wraplength=400).pack(padx=10, pady=20)
+            label_final = ctk.CTkLabel(self, text=result_text, font=("Helvetica", 12), wraplength=400)
+            label_final.pack(padx=10, pady=20)
