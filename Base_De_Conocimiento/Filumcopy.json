@@ -157,7 +157,7 @@
     },
     {
       "name": "Chordata",
-      "description": "Los Cordados (Chordata, del griego χορδωτά khordota ‘con cuerda')  constituyen un phylum dentro del reino Animal, caracterizado por la presencia de una cuerda dorsal o notocorda de células turgentes, a la que deben su nombre. Se conocen casi 65.000 especies actuales, siendo el tercer phylum Animal más numeroso (después de los Artrópodos y los Moluscos), con la mayoría de ellas pertenecientes al subphylum de los Vertebrados, representando los peces óseos (Clase Actinopterygii), con unas 22.000 especies, el grupo más abundante. Los Cordados están emparentados con los phylum Echinodermata y Hemichordata, aunque aparentemente sean muy diferentes de estos, ya que se separaron de su ancestro común muy tempranamente. Los fósiles del Cordado más antiguo conocido proceden del Cámbrico inferior, y tienen una edad aproximada de 525 millones de años.",
+      "description": "Los Cordados (Chordata) son un phylum del reino Animal caracterizado por la presencia de una notocorda. Con casi 65,000 especies, es el tercer phylum más numeroso, después de los Artrópodos y Moluscos. La mayoría de sus especies pertenecen a los Vertebrados, siendo los peces óseos (Actinopterygii) el grupo más abundante, con unas 22,000 especies. Están emparentados con Equinodermos y Hemicordados, aunque divergieron temprano de un ancestro común. Sus fósiles más antiguos datan de hace 525 millones de años, en el Cámbrico inferior",
       "props": [
         "Tiene Organizacion en Sistemas",
         "Tiene Simetría Bilateral",
