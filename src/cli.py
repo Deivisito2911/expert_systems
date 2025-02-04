@@ -7,7 +7,7 @@ from experto_general.engine import Engine
 # Motor como variable global
 engine = Engine()
 
-
+#Insersion de datos de la abse de conocimmiento por le sistema
 def _1_insertar():
     entrada = input("Nombre de la entrada: ")
     entry = engine.base.get_or_add_entry(entrada)
@@ -20,7 +20,7 @@ def _1_insertar():
 
     print(f"Entrada agregada: {entry}")
 
-
+#Consulta al sistema experto
 def _2_consultar():
     entry = engine.start()
     if entry is None:
@@ -32,13 +32,13 @@ def _2_consultar():
 def _3_ver():
     print(engine.base)
 
-
+#Guardado de base de conocimiento
 def _4_guardar():
     entrada = input("Nombre de archivo: ")
     engine.base.to_json(entrada.strip())
     print("Guardado con éxito")
 
-
+#Carga de base de conocimiento
 def _5_cargar():
     entrada = input("Nombre de archivo: ")
     try:
@@ -46,7 +46,7 @@ def _5_cargar():
     except KeyError as e:
         print("Archivo inválido o con formato incorrecto:", e)
 
-
+#Entradas
 def menu():
     while True:
         print("1. Introducir objeto")

@@ -6,6 +6,7 @@ import os
 
 class ConsultarBase(ctk.CTkFrame):
     def __init__(self, parent):
+        
         super().__init__(parent)
         self.pack(fill="both", expand=True)
 
@@ -54,17 +55,19 @@ class ConsultarBase(ctk.CTkFrame):
             engine.set_response(response)
             question = next(self.questions)
             if question:
+                # Obtener la ruta del directorio actual
+                current_dir = os.path.dirname(__file__)
                 self.lbl_question.configure(text=f"¿{question.name}?")
 
                 # Intentar cargar imagen de la característica
                 image_name_png = f"{question.name}.png"
                 image_name_jpg = f"{question.name}.jpg"
                 image_path = None
-
-                if os.path.exists(os.path.join("interfaz", "images", image_name_png)):
-                    image_path = os.path.join("interfaz", "images", image_name_png)
-                elif os.path.exists(os.path.join("interfaz", "images", image_name_jpg)):
-                    image_path = os.path.join("interfaz", "images", image_name_jpg)
+                #Carga de ruta de las imagenes
+                if os.path.exists(os.path.join(current_dir, "..","..","assets", "images", image_name_png)):
+                    image_path = os.path.join(current_dir, "..","..","assets", "images", image_name_png)
+                elif os.path.exists(os.path.join(current_dir, "..","..","assets", "images", image_name_jpg)):
+                    image_path = os.path.join(current_dir, "..","..","assets", "images", image_name_jpg)
 
                 if image_path:
                     image = Image.open(image_path)
@@ -86,15 +89,17 @@ class ConsultarBase(ctk.CTkFrame):
 
         # Mostrar el resultado
         if engine.result:
+            # Obtener la ruta del directorio actual
+            current_dir = os.path.dirname(__file__)
             # Crear el nombre del archivo de imagen
             image_name_png = f"{engine.result.name}.png"
             image_name_jpg = f"{engine.result.name}.jpg"
             image_path = None
-
-            if os.path.exists(os.path.join("interfaz", "images", image_name_png)):
-                image_path = os.path.join("interfaz", "images", image_name_png)
-            elif os.path.exists(os.path.join("interfaz", "images", image_name_jpg)):
-                image_path = os.path.join("interfaz", "images", image_name_jpg)
+            #Carga ruta de las imagenes
+            if os.path.exists(os.path.join(current_dir, "..","..","assets", "images", image_name_png)):
+                image_path = os.path.join(current_dir, "..","..","assets", "images", image_name_png)
+            elif os.path.exists(os.path.join(current_dir, "..","..","assets", "images", image_name_jpg)):
+                image_path = os.path.join(current_dir, "..","..","assets", "images", image_name_jpg)
 
             try:
                 if image_path:
