@@ -6,7 +6,6 @@ class Property:
     def __init__(self, name: str):
         """
         Crea una nueva propiedad
-
         :param name: Identificador de la propiedad
         """
         self.name = name.strip()

@@ -7,7 +7,7 @@ from tkinter import messagebox
 # Motor como variable global
 engine = Engine()
 
-
+#Adicion de caracteristicas
 def insertar(nombre, prop):
     if nombre and prop:
         entry = engine.base.get_or_add_entry(nombre)
@@ -17,11 +17,11 @@ def insertar(nombre, prop):
         print("No se admiten vacíos")
         messagebox.showinfo(message="No se admiten valores vacíos", title="Aviso")
 
-
+#Obtener base de conocimiento
 def get_base_entries():
     return engine.base.entries
 
-
+#Guardado del archivo de la base de conocimiento
 def guardar(entrada):
     if entrada:
         engine.base.to_json(entrada.strip())
@@ -29,7 +29,7 @@ def guardar(entrada):
     else:
         messagebox.showinfo(message="Elige un nombre para el archivo", title="Guardado")
 
-
+#Carga del archivo de la base de conocimiento
 def cargar(entrada):
     if entrada:
         try:

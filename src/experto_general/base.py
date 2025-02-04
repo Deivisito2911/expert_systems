@@ -3,9 +3,7 @@ from experto_general.entry import Entry
 from io import open
 import json
 
-
 JSON_LATEST = 1
-
 
 class BaseConocimientos:
     """
@@ -74,7 +72,6 @@ class BaseConocimientos:
         for entry in self.entries:
             if entry.is_equal(name):
                 return entry
-
         entry = Entry(name)
         self.entries.append(entry)
         return entry
