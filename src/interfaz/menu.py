@@ -3,6 +3,8 @@ import interfaz.insertarbase as insertar_base
 import interfaz.guardarbase as guardar_base
 import interfaz.consultarbase as consultar_base
 from PIL import Image
+import webbrowser
+import os
 
 class Interfaz(ctk.CTk):
     def __init__(self):
@@ -10,22 +12,43 @@ class Interfaz(ctk.CTk):
         self.geometry('800x500')
         self.title('Sistema Experto UDO 2024')
         self.resizable(width=False, height=False)
-        self.iconbitmap(r"..\assets\images\icon.ico")  # Ruta de icono
+        ruta_ico = "GRUPO F/assets/images/icon.ico"
+        if (os.path.exists(ruta_ico)) :
+            try:
+                self.iconbitmap("GRUPO F/assets/images/icon.ico")
+            except:
+                self.iconbitmap(r"..\assets\images\icon.ico")
 
-        # Cabecera simple
+        #Cabecera con el boton de presentacion
+        self.header_frame = ctk.CTkFrame(self)
+        self.header_frame.pack(side="top", fill="x") 
+        
+        #Cabecera simple
         self.lbl_base = ctk.CTkLabel(
-            self,
+            self.header_frame,
             text="Sistema Experto UDO 2024",
             font=("Helvetica", 20, "bold"),
             text_color="#07bb87",
         )
-        self.lbl_base.pack(pady=10)
+        self.lbl_base.pack(side="left", pady=10, padx=20)
+
+        self.btn_presentacion = self.create_button(  # Botón en la cabecera
+            self.header_frame,
+            "Presentación",
+            self.abrir_presentacion,
+        )
+        self.btn_presentacion.pack(side="right", pady=10, padx=20)  # Align right
 
         # Contenedor del área de contenido principal
         self.content_frame = ctk.CTkFrame(self)
         self.content_frame.place(relx=0.5, rely=0.5, anchor="center", relwidth=0.9, relheight=0.8)
-        
-        self.imagen = ctk.CTkImage(
+        try:#Intenta con rutas probadas en linux
+            self.imagen = ctk.CTkImage(
+                light_image= Image.open("GRUPO F/assets/images/udo.png"),  # Ruta de la imagen
+                size=(200, 200)  # Tamaño de la imagen (ancho, alto)
+            )
+        except:#Intenta con rutas probadas en windows
+            self.imagen = ctk.CTkImage(
             light_image= Image.open(r"..\assets\images\udo.png"),  # Ruta de la imagen
             size=(200, 200)  # Tamaño de la imagen (ancho, alto)
         )
@@ -59,6 +82,14 @@ class Interfaz(ctk.CTk):
 
         # Botón para volver al menú principal
         self.btn_volver = None  # Se crea dinámicamente
+
+    def abrir_presentacion(self):
+        ruta_html = os.path.join("..","src","interfaz","presentacion.html")
+        ruta_html2 = os.path.join("GRUPO F", "src", "interfaz", "presentacion.html")  
+        if os.path.exists(ruta_html):
+            webbrowser.open(ruta_html)
+        else:
+            webbrowser.open(ruta_html2)
 
     def create_button(self, parent, text, command):
         """Crea un botón con estilo uniforme."""

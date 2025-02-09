@@ -1,0 +1,265 @@
+{
+  "__v": 1,
+  "description": "Base de conocimiento de Phyla de especies",
+  "entries": [
+    {
+      "name": "Porifera",
+      "description": "Son Metazoos muy sencillos, asimétricos o con simetría radial que no tienen órganos, boca o tejido nervioso propiamente dichos, sino solo una organización celular diferenciada. Exclusivamente acuáticos (marinos y agua dulce), de hábitos sésiles y filtradores.",
+      "props": [
+        "Tiene Organizacion Pluricelular",
+        "Tiene Organizacion en Celulas diferenciadas",
+        "Tiene Simetría Asimétrica",
+        "Tiene capa germinales Diploblástico",
+        "Tiene Cavidad corporal Ausente",
+        "No es segmentado",
+        "Tiene sistema digestivo Ausente",
+        "Tiene sistema nervioso Ausente",
+        "Tiene soporte corporal Hidrostático",
+        "Tiene reproduccion Asexual",
+        "Tiene reproduccion Sexual",
+        "Tiene Habitat acuatica"
+      ]
+    },
+    {
+      "name": "Cnidaria",
+      "description": "Es un grupo formado por las hidras, las medusas y los corales. Tienen como principal característica la presencia de cnidocitos, células urticantes que se encuentran en los tentáculos de todos los individuos.",
+      "props": [
+        "Tiene Organizacion Pluricelular",
+        "Tiene Organizacion de Tejidos",
+        "Tiene Simetría Radial",
+        "Tiene capa germinales Diploblástico",
+        "Tiene Cavidad corporal Ausente",
+        "No es segmentado",
+        "Tiene sistema digestivo Incompleto",
+        "Tiene sistema nervioso Difuso",
+        "Tiene soporte corporal Hidrostático",
+        "Tiene reproduccion Asexual",
+        "Tiene reproduccion Sexual",
+        "Tiene Habitat acuatica"
+      ]
+    },
+    {
+      "name": "Ctenophora",
+      "description": "Es un pequeño grupo de animales marinos parecidos a los cnidarios, que tienen células especializadas llamadas coloblastos, responsables de producir sustancias pegajosas para atrapar a sus presas. Pueden vivir en la superficie, pero existe una gran variedad de ellos en el fondo oceánico, reportados en profundidades de hasta 3,000 metros.",
+      "props": [
+        "Tiene Organizacion Pluricelular",
+        "Tiene Organizacion de Tejidos",
+        "Tiene Simetría Radial",
+        "Tiene capa germinales Diploblástico",
+        "Tiene Cavidad corporal Ausente",
+        "No es segmentado",
+        "Tiene sistema digestivo Incompleto",
+        "Tiene sistema nervioso Difuso",
+        "Tiene soporte corporal Hidrostático",
+        "Tiene reproduccion Sexual",
+        "Tiene Habitat acuatica"
+      ]
+    },
+    {
+      "name": "Platyhelminthes",
+      "description": "Son llamados también gusanos planos y son un grupo que tiene individuos de vida libre, así como muchos parásitos de importancia médica, como la temida tenia intestinal. Son los primeros animales que presentan cefalización, es decir, una concentración mayor de neuronas en un extremo, lo que representa un avance, evolutivamente hablando, hacia la formación de un cerebro y un sistema nervioso central.",
+      "props": [
+        "Tiene Organizacion Pluricelular",
+        "Tiene Organizacion en Organos",
+        "Tiene Simetría Bilateral",
+        "Tiene capa germinales Triploblástico",
+        "Tiene Cavidad corporal Acelomado",
+        "No es segmentado",
+        "Tiene sistema digestivo Incompleto",
+        "Tiene sistema nervioso Ganglionar",
+        "Tiene soporte corporal Hidrostático",
+        "Tiene reproduccion Sexual",
+        "Tiene reproduccion Asexual",
+        "Tiene Habitat acuatica",
+        "Tiene Habitat parasita"
+      ]
+    },
+    {
+      "name": "Annelida",
+      "description": "Es un gran grupo de animales, la mayoría con forma de gusanos segmentados. ¿Conoces a las lombrices de tierra? ¿Y a las sanguijuelas? Pues ellas forman parte de este phylum. Son animales , con celoma completo (celomados) con simetría bilateral y cuerpo dividido en segmentos por tabiques internos. Esta característica les permite ejercer presión hidrostática de manera más eficiente para la locomoción. Cada segmento se llama metámero y en especies más típicas del grupo, cada metámero posee porciones similares de los sistemas, lo que les permite actuar con relativa independencia.",
+      "props": [
+        "Tiene Organizacion Pluricelular",
+        "Tiene Organizacion en Organos",
+        "Tiene Simetría Bilateral",
+        "Tiene capa germinales Triploblástico",
+        "Tiene Cavidad corporal Celomado",
+        "Es segmentado",
+        "Tiene sistema digestivo completo",
+        "Tiene sistema nervioso Ganglionar",
+        "Tiene soporte corporal Hidrostático",
+        "Tiene reproduccion Sexual",
+        "Tiene Habitat acuatica",
+        "Tiene Habitat terrestre"
+      ]
+    },
+    {
+      "name": "Mollusca",
+      "description": "Pulpos, almejas, caracoles, calamares. Los moluscos conforman un grupo extremadamente diverso de animales que ha colonizado exitosamente nuestro planeta. Aunque íntimamente ligados al agua, existen muchos que son terrestres y podemos verlos recorriendo nuestros parques y jardines.",
+      "props": [
+        "Tiene Organizacion Pluricelular",
+        "Tiene Organizacion en Organos",
+        "Tiene Simetría Bilateral",
+        "Tiene capa germinales Triploblástico",
+        "Tiene Cavidad corporal Celomado",
+        "No es segmentado",
+        "Tiene sistema digestivo completo",
+        "Tiene sistema nervioso Ganglionar",
+        "Tiene soporte corporal Exoesqueleto",
+        "Tiene reproduccion Sexual",
+        "Tiene Habitat acuatica",
+        "Tiene Habitat terrestre"
+      ]
+    },
+    {
+      "name": "Nematoda",
+      "description": "Es el cuarto phylum más grande del reino Animalia, con más de 25,000 especies descritas, y un número estimado de medio millón de especies. Son pseudocelomados, y pueden ser tanto acuáticos como terrestres. Pueden ser de vida libre o parásitos de plantas y animales, siendo importantes agentes de enfermedades humanas y de ganado o de cultivos.",
+      "props": [
+        "Tiene Organizacion Pluricelular",
+        "Tiene Organizacion en Organos",
+        "Tiene Simetría Bilateral",
+        "Tiene capa germinales Triploblástico",
+        "Tiene Cavidad corporal Pseudocelomado",
+        "No es segmentado",
+        "Tiene sistema digestivo completo",
+        "Tiene sistema nervioso Ganglionar",
+        "Tiene soporte corporal Hidrostático",
+        "Tiene reproduccion Sexual",
+        "Tiene Habitat acuatica",
+        "Tiene Habitat parasita"
+      ]
+    },
+    {
+      "name": "Arthropoda",
+      "description": "El phylum Arthropoda constituye el más grande y diversificado del Reino Animal. Con más de 1.200.000 especies, Insectos en su mayoría, representan más del 80 % de las especies animales conocidas. Los Artrópodos tiene el cuerpo formado por segmentos repetidos, metámeros, la evolución en el grupo va a conducir a un proceso de fusión de metámeros, conocido como tagmosis, que en la mayoría de los casos va a tener como resultado la división del cuerpo en dos o tres regiones.",
+      "props": [
+        "Tiene Organizacion Pluricelular",
+        "Tiene Organizacion en Organos",
+        "Tiene Simetría Bilateral",
+        "Tiene capa germinales Triploblástico",
+        "Tiene Cavidad corporal Celomado",
+        "Es segmentado",
+        "Tiene sistema digestivo completo",
+        "Tiene sistema nervioso Ganglionar",
+        "Tiene soporte corporal Exoesqueleto",
+        "Tiene reproduccion Sexual",
+        "Tiene Habitat acuatica",
+        "Tiene Habitat terrestre",
+        "Tiene Habitat aerea"
+      ]
+    },
+    {
+      "name": "Echinodermata",
+      "description": "Los Equinodermos constituyen un phylum del reino Animalia, que agrupa las conocidos comunmente como estrellas de mar, estrellas con plumas, lirios de mar, ofiuros, erizos de mar y holoturias o cohombros de mar. Su nombre proviene del griego echinos (espina) y dermis (piel), y alude a su exclusivo exoesqueleto formado por osículos calcáreos. Con aproximadamente unas 7.000 especies actuales, su historia se remonta a principios del Cámbrico​, hace aproximadamente 540 millones de años, siendo uno de los grupos mejor representados en el registro fósil.",
+      "props": [
+        "Tiene Organizacion Pluricelular",
+        "Tiene Organizacion en Organos",
+        "Tiene Simetría Radial",
+        "Tiene capa germinales Triploblástico",
+        "Tiene Cavidad corporal Celomado",
+        "No es segmentado",
+        "Tiene sistema digestivo completo",
+        "Tiene sistema nervioso Difuso",
+        "Tiene soporte corporal Endoesqueleto",
+        "Tiene reproduccion Sexual",
+        "Tiene Habitat acuatica"
+      ]
+    },
+    {
+      "name": "Chordata",
+      "description": "Los Cordados (Chordata) son un phylum del reino Animal caracterizado por la presencia de una notocorda. Con casi 65,000 especies, es el tercer phylum más numeroso, después de los Artrópodos y Moluscos. La mayoría de sus especies pertenecen a los Vertebrados, siendo los peces óseos (Actinopterygii) el grupo más abundante, con unas 22,000 especies. Están emparentados con Equinodermos y Hemicordados, aunque divergieron temprano de un ancestro común. Sus fósiles más antiguos datan de hace 525 millones de años, en el Cámbrico inferior",
+      "props": [
+        "Tiene Organizacion Pluricelular",
+        "Tiene Organizacion en Sistemas",
+        "Tiene Simetría Bilateral",
+        "Tiene capa germinales Triploblástico",
+        "Tiene Cavidad corporal Celomado",
+        "Es segmentado",
+        "Tiene sistema digestivo completo",
+        "Tiene sistema nervioso Centralizado",
+        "Tiene soporte corporal Endoesqueleto",
+        "Tiene reproduccion Sexual",
+        "Tiene Habitat acuatica",
+        "Tiene Habitat terrestre"
+      ]
+    },
+    {
+      "name": "Bryozoa",
+      "description": "Los Briozoos, constituyen un phylum de pequeños animales coloniales, caracterizados por presentar el lofóforo, una corona de tentáculos ciliados que le sirven para captar alimento y, en los que con un tubo digestivo en forma de U, el ano se abre fuera de dicha corona tentacular.",
+      "props": [
+        "Tiene Organizacion Pluricelular",
+        "Tiene Organizacion en Organos",
+        "Tiene Simetría Bilateral",
+        "Tiene capa germinales Triploblástico",
+        "Tiene Cavidad corporal Celomado",
+        "No es segmentado",
+        "Tiene sistema digestivo completo",
+        "Tiene sistema nervioso Centralizado",
+        "Tiene soporte corporal Exoesqueleto",
+        "Tiene reproduccion Sexual",
+        "Tiene reproduccion Asexual",
+        "Tiene Habitat acuatica"
+      ]
+    },
+    {
+      "name": "Acanthocephala",
+      "description": "Los acantocéfalos (Acanthocephala, del griego acanthus, 'espina' y kephale, 'cabeza') forman un grupo de gusanos parásitos caracterizados por la presencia de una probóscide invaginable erizada de espinas. Posee ciclos biológicos muy complejos, que implican a varios hospedadores intermedios, incluidos invertebrados, peces, anfibios, aves y mamíferos. Existen unas 1100 especies descritas,cuyo tamaño oscila desde unos pocos milímetros hasta 65 centímetros (cm)",
+      "props": [
+        "Tiene Organizacion Pluricelular",
+        "Tiene Organizacion en Organos",
+        "Tiene Simetría Bilateral",
+        "Tiene capa germinales Triploblástico",
+        "Tiene Cavidad corporal Pseudocelomado",
+        "No es segmentado",
+        "Tiene sistema digestivo Ausente",
+        "Tiene sistema nervioso Centralizado",
+        "Tiene soporte corporal Hidrostático",
+        "Tiene reproduccion Sexual",
+        "Tiene Habitat parasita"
+      ]
+    },
+    {
+      "name": "Nemertea",
+      "description": "Los Nemertea se conocen coloquialmente como gusanos de cinta. La mayoría de las especies de phylum Nemertea son marinos, predominantemente bentónicos o habitantes del fondo, con un estimado de 900 especies conocidas. Sin embargo, los nemertini también se han registrado en hábitats de agua dulce y terrestres. La mayoría de los nemerteans son carnívoros, que se alimentan de gusanos, almejas y crustáceos.",
+      "props": [
+        "Tiene Organizacion Pluricelular",
+        "Tiene Organizacion en Organos",
+        "Tiene Simetría Bilateral",
+        "Tiene capa germinales Triploblástico",
+        "Tiene Cavidad corporal Celomado",
+        "No es segmentado",
+        "Tiene sistema digestivo completo",
+        "Tiene sistema nervioso Centralizado",
+        "Tiene soporte corporal Hidrostático",
+        "Tiene reproduccion Sexual",
+        "Tiene Habitat acuatica",
+        "Tiene Habitat terrestre"
+      ]
+    },
+    {
+      "name": "Protozoa",
+      "description": "El phylum Protozoa incluye a los organismos eucariotas unicelulares que generalmente viven en ambientes acuáticos o húmedos. Son muy diversos en forma y función, y pueden ser de vida libre o parásitos. Muchos protozoos son importantes desde un punto de vista ecológico, ya que participan en la descomposición de materia orgánica y en la cadena alimentaria.",
+      "props": [
+        "Tiene Organizacion Unicelular",
+        "Tiene Simetría Variable",
+        "No es segmentado",
+        "Tiene sistema digestivo variable",
+        "Tiene reproduccion Sexual",
+        "Tiene reproduccion Asexual",
+        "Tiene Habitat acuatica",
+        "Tiene Habitat terrestre"
+      ]
+    },
+    {
+      "name": "Cyanobacteria",
+      "description": "Las cyanobacterias, también conocidas como algas verdeazuladas, son un grupo fascinante de bacterias que realizan fotosíntesis, similar a las plantas. Aunque comúnmente se les llama algas, no son algas verdaderas, sino bacterias procariotas. Estas bacterias son unicelulares, pero a menudo forman colonias que pueden ser vistas a simple vista.",
+      "props": [
+        "Tiene Organizacion Unicelular",
+        "Tiene Simetría Variable",
+        "No es segmentado",
+        "Tiene reproduccion Asexual",
+        "Tiene Habitat acuatica",
+        "Tiene Habitat terrestre"
+      ]
+    }
+  ]
+}
