@@ -110,30 +110,38 @@ class ConsultarBase(ctk.CTkFrame):
                     frame_contenido = ctk.CTkFrame(self)
                     frame_contenido.pack(fill="both", expand=True, pady=10)
 
+                    #Usar un frame para las imagenes y el texto para centrar todo
+                    frame_central = ctk.CTkFrame(frame_contenido)
+                    frame_central.pack(expand=True, pady=10)
+
                     # Imagen izquierda
                     self.lbl_imagen_izquierda = ctk.CTkLabel(frame_contenido, image=self.imagen, text="")
-                    self.lbl_imagen_izquierda.grid(row=0, column=0, padx=10)
+                    self.lbl_imagen_izquierda.pack(side="left", padx=10)
 
                     # Texto del resultado
                     result_text = (
-                        f"El filum es: {engine.result.name}\n\n"
+                        f"El Phylum es: {engine.result.name}\n\n"
                         f"{engine.result.description}\n\n"
                         f"Características coincidentes:\n" + "\n".join(f"- {prop.name}" for prop in engine.result.properties)
                     )
                     label_texto = ctk.CTkLabel(frame_contenido, text=result_text, font=("Helvetica", 12), wraplength=400)
-                    label_texto.grid(row=0, column=1, padx=10)
+                    label_texto.pack(side="left", padx=10)
 
                     # Imagen derecha
                     self.lbl_imagen_derecha = ctk.CTkLabel(frame_contenido, image=self.imagen, text="")
-                    self.lbl_imagen_derecha.grid(row=0, column=2, padx=10)
+                    self.lbl_imagen_derecha.pack(side="right", padx=10)
+
+                    #Centrar el frame central
+                    frame_contenido.update_idletasks()
+                    frame_central.place(relx=0.5, rely=0.5, anchor="center")
 
                 else:
-                    print(f"No se encontró imagen para el filum: {engine.result.name}")
+                    print(f"No se encontró imagen para el Phylum: {engine.result.name}")
 
             except Exception as e:
                 print(f"Error al cargar la imagen: {e}")
 
         else:
-            result_text = "No se encontró ningún filum que cumpla con las características dadas."
+            result_text = "No se encontró ningún phylum que cumpla con las características dadas."
             label_final = ctk.CTkLabel(self, text=result_text, font=("Helvetica", 12), wraplength=400)
             label_final.pack(padx=10, pady=20)

@@ -31,7 +31,7 @@ class InsertarBase(ctk.CTkFrame):
         self.fill_base_tree_view()
 
         # Campos para entrada de datos (lado derecho)
-        self.lbl_entry = ctk.CTkLabel(self.right_frame, text="Nombre del Filum")
+        self.lbl_entry = ctk.CTkLabel(self.right_frame, text="Nombre del Phylum")
         self.lbl_entry.pack(pady=10)
 
         self.txt_entry = ctk.CTkEntry(self.right_frame)
@@ -64,7 +64,7 @@ class InsertarBase(ctk.CTkFrame):
                 self.entradas.insert(nombre, "end", text=prop.name)
 
     def add_propiedad(self):
-        """Agrega una nueva propiedad al filum y actualiza la vista."""
+        """Agrega una nueva propiedad al phylum y actualiza la vista."""
         entrada = self.txt_entry.get()
         propiedad = self.txt_prop.get()
         acciones.insertar(entrada, propiedad)
